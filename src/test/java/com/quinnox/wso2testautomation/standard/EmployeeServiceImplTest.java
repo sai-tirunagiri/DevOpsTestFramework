@@ -19,7 +19,7 @@ public class EmployeeServiceImplTest {
 	Employee employee; 
 	
 	
-	//@BeforeTest
+	@BeforeTest
 	public void init() throws Exception {
 		apiUtilDto = new APIUtilDTO();
 		apiUtil = new APIUtil();
@@ -27,14 +27,14 @@ public class EmployeeServiceImplTest {
 	}
 	
 	
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void verifyGetWso2APIDSSServiceResponse() {
 		apiUtilDto = apiUtil.extractAPITestDataForDSSSevice();
 		int response = 0;
 		try {
 			response = employeeService.getWso2APIDSSServiceResponse(apiUtilDto);
 			Assert.assertEquals(response, 202,
-					"API IS NOT REACHABLE || INVALID SERIAL NUMBER || UNIQUE CONSTRAINT");
+					"API IS NOT REACHABLE");
 		} catch (ServiceException e) {
 			System.out
 					.println("Went wrong while mocking the call for WSO2 API "
@@ -43,14 +43,14 @@ public class EmployeeServiceImplTest {
 	}
 
 	
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void verifyAddEployeeFromDSSService() {
 		apiUtilDto = apiUtil.extractAPITestDataAddEmployeeForDSSSevice();
 		HttpResponse response = null;
 		try {
 			response = employeeService.addEployeeFromDSSService(apiUtilDto);
 			Assert.assertEquals(response.toString().contains("200"),true, 
-					"API IS NOT REACHABLE || DATA NOT INSERTED IN DB || UNIQUE CONSTRAINT");
+					"DATA NOT INSERTED IN DB || UNIQUE CONSTRAINT");
 		} catch (ServiceException e) {
 			System.out
 					.println("Employee Data Not Inserted in DB "
@@ -58,7 +58,7 @@ public class EmployeeServiceImplTest {
 		}
 	}
 	
-	//@Test(priority = 3)
+	@Test(priority = 3)
 		public void verifyGetEmployeeFromDSSService() {
 			apiUtilDto = apiUtil.extractAPITestDataFetchEmployeeForDSSSevice();
 			APIUtilDTO apiUtilDtoForJsonInput = apiUtil.extractAPITestDataForEmployeeJsonInput();
@@ -75,14 +75,14 @@ public class EmployeeServiceImplTest {
 			}
 		}
 	
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public void verifyAddEployeeFromDSSServiceInvalidJson() {
 		apiUtilDto = apiUtil.extractAPITestDataAddEmployeeForDSSSeviceInvalidJson();
 		HttpResponse response = null;
 		try {
 			response = employeeService.addEployeeFromDSSServiceInvalidJson(apiUtilDto);
-			Assert.assertEquals(response.toString().contains("500"), 
-					"API IS NOT REACHABLE || DATA NOT INSERTED IN DB || UNIQUE CONSTRAINT");
+			Assert.assertEquals(response.toString().contains("200"),true, 
+					"DATA NOT INSERTED IN DB || UNIQUE CONSTRAINT");
 		} catch (ServiceException e) {
 			System.out
 					.println("Employee Data Not Inserted in DB "
@@ -90,15 +90,4 @@ public class EmployeeServiceImplTest {
 		}
 	}
 	
-	
-	public static void main(String[] args) throws Exception {
-		EmployeeServiceImplTest employeeServiceImplTest = new EmployeeServiceImplTest();
-		employeeServiceImplTest.init();
-		employeeServiceImplTest.verifyGetWso2APIDSSServiceResponse();
-		employeeServiceImplTest.verifyAddEployeeFromDSSService();
-		employeeServiceImplTest.verifyGetEmployeeFromDSSService();
-		employeeServiceImplTest.verifyAddEployeeFromDSSServiceInvalidJson();
-		
-	}
-
 }

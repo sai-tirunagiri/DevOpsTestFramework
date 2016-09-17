@@ -3,10 +3,13 @@ package com.quinnox.wso2testautomation.service;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+import org.json.XML;
 
 import com.google.gson.Gson;
 import com.quinnox.wso2testautomation.exception.ServiceException;
 import com.quinnox.wso2testautomation.model.Employee;
+import com.quinnox.wso2testautomation.model.MyPojo;
 import com.quinnox.wso2testautomation.util.APIUtil;
 import com.quinnox.wso2testautomation.util.APIUtilDTO;
 
@@ -67,7 +70,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 					apiUtilDTO.getContentType());
 			HttpEntity entity = response.getEntity();
 			String responseContent = EntityUtils.toString(entity);
-			if (employee.getEMP_NAME().equals(responseContent.contains(employee.getEMP_NAME()))) {
+			JSONObject xmlJSONObj = XML.toJSONObject(responseContent);
+			String jsonPrettyPrintString = xmlJSONObj.toString(4);
+			MyPojo responceEmployeeJson = gson.fromJson(jsonPrettyPrintString, MyPojo.class);
+			if (employee.getEMP_NAME().equals(responceEmployeeJson.getResult().getNAME().trim())) {
 				System.out.println("Employee Data Found in Target System...");
 				compareResult = true;
 			} else {

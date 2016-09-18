@@ -43,7 +43,7 @@ public class EmployeeServiceImplTest {
 	}
 
 	
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnMethods={"verifyGetWso2APIDSSServiceResponse"})
 	public void verifyAddEployeeFromDSSService() {
 		apiUtilDto = apiUtil.extractAPITestDataAddEmployeeForDSSSevice();
 		HttpResponse response = null;
@@ -58,7 +58,7 @@ public class EmployeeServiceImplTest {
 		}
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3, dependsOnMethods={"verifyAddEployeeFromDSSService"})
 		public void verifyGetEmployeeFromDSSService() {
 			apiUtilDto = apiUtil.extractAPITestDataFetchEmployeeForDSSSevice();
 			APIUtilDTO apiUtilDtoForJsonInput = apiUtil.extractAPITestDataForEmployeeJsonInput();
@@ -75,7 +75,7 @@ public class EmployeeServiceImplTest {
 			}
 		}
 	
-	@Test(priority = 4)
+	@Test(priority = 4, dependsOnMethods={"verifyGetWso2APIDSSServiceResponse"})
 	public void verifyAddEployeeFromDSSServiceInvalidJson() {
 		apiUtilDto = apiUtil.extractAPITestDataAddEmployeeForDSSSeviceInvalidJson();
 		HttpResponse response = null;

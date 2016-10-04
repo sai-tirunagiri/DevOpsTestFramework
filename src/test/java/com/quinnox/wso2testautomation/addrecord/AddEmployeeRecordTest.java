@@ -34,7 +34,7 @@ public class AddEmployeeRecordTest {
 		HttpResponse response = null;
 		try {
 			response = employeeService.addEployeeFromDSSService(apiUtilDto);
-			Assert.assertTrue(true,"DATA NOT INSERTED IN DB || UNIQUE CONSTRAINT");
+			Assert.assertEquals(true, true);
 		} catch (ServiceException e) {
 			System.out
 					.println("Employee Data Not Inserted in DB "

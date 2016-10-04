@@ -33,7 +33,7 @@ public class EmployeeServiceImplTest {
 		int response = 0;
 		try {
 			response = employeeService.getWso2APIDSSServiceResponse(apiUtilDto);
-			Assert.assertTrue(true,"API IS NOT REACHABLE");
+			Assert.assertEquals(true, true);
 		} catch (ServiceException e) {
 			System.out
 					.println("Went wrong while mocking the call for WSO2 API "

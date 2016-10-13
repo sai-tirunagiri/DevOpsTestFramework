@@ -30,17 +30,5 @@ public class VerifyEmployeeRecordTest {
 		@Test
 		public void verifyGetEmployeeFromDSSService() {
 			System.out.println("TEST 3");
-			apiUtilDto = apiUtil.extractAPITestDataFetchEmployeeForDSSSevice();
-			APIUtilDTO apiUtilDtoForJsonInput = apiUtil.extractAPITestDataForEmployeeJsonInput();
-			boolean response = false;
-			try {
-				//employee = employeeService.getEmployeeDataFromInputJson(apiUtilDtoForJsonInput);
-				//response = employeeService.getEmployeeFromDSSService(apiUtilDto,employee);
-				Assert.assertEquals(true, true);
-			} catch (Exception e) {
-				System.out
-						.println("Employee Data Not Found in DB "
-								+ e.getMessage());
-			}
 		}
 }

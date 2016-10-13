@@ -29,16 +29,6 @@ public class PostInvalidJsonToAPITest {
 	@Test
 	public void verifyAddEployeeFromDSSServiceInvalidJson() {
 		System.out.println("TEST 4");
-		apiUtilDto = apiUtil.extractAPITestDataAddEmployeeForDSSSeviceInvalidJson();
-		HttpResponse response = null;
-		try {
-			//response = employeeService.addEployeeFromDSSServiceInvalidJson(apiUtilDto);
-			Assert.assertEquals(true, true);
-		} catch (Exception e) {
-			System.out
-					.println("Employee Data Not Inserted in DB "
-							+ e.getMessage());
-		}
 	}
 	
 }

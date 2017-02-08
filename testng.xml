@@ -6,7 +6,7 @@
       <class name="com.quinnox.wso2testautomation.apicheck.ApiCheckTest"/>
       <class name="com.quinnox.wso2testautomation.addrecord.AddEmployeeRecordTest"/>
       <class name="com.quinnox.wso2testautomation.verifyrecord.VerifyEmployeeRecordTest"/>
-      <class name="com.quinnox.wso2testautomation.invalidinput.PostInvalidJsonToAPITest"/>
+<!--       <class name="com.quinnox.wso2testautomation.invalidinput.PostInvalidJsonToAPITest"/> -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

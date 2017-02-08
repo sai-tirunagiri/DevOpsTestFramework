@@ -19,6 +19,6 @@ public interface EmployeeService {
 	public int getWso2APIDSSServiceResponse(APIUtilDTO apiUtilDTO)throws ServiceException;
 	public boolean getEmployeeFromDSSService(APIUtilDTO apiUtilDTO, Employee employee)throws ServiceException;
 	public HttpResponse addEployeeFromDSSService(APIUtilDTO apiUtilDTO)throws ServiceException;
-	public HttpResponse addEployeeFromDSSServiceInvalidJson(APIUtilDTO apiUtilDTO)throws ServiceException;
+	public HttpResponse getEmployeeInfoFromDSSService(APIUtilDTO apiUtilDTO) throws ServiceException;
 		
 }

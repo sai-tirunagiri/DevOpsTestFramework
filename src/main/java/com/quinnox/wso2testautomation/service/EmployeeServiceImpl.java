@@ -91,7 +91,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public HttpResponse addEployeeFromDSSServiceInvalidJson(APIUtilDTO apiUtilDTO) throws ServiceException {
+	public HttpResponse getEmployeeInfoFromDSSService(APIUtilDTO apiUtilDTO) throws ServiceException {
 		System.out.println("[Enter into EmployeeServiceImpl.addEployeeFromDSSServiceInvalidJson...]");
 		HttpResponse response = null;
 		try {
